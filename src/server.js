@@ -1,19 +1,20 @@
-import { Hono } from 'hono';
-import { stream } from 'hono/streaming';
-import { render } from 'swtl';
+import { Hono } from "hono";
+import { stream } from "hono/streaming";
+import { serve } from "@hono/node-server";
+import { render } from "swtl";
 
-import { createReadableStreamFromAsyncGenerator } from './utils.js';
-import { template as listTemplate } from './templates/list.js';
+import { createReadableStreamFromAsyncGenerator } from "./utils.js";
+import { template as listTemplate } from "./templates/list.js";
 
 const app = new Hono();
 
-app.get('/', (ctx) => {
+app.get("/", (ctx) => {
   return stream(ctx, async (stream) => {
-    ctx.res.headers.set('Content-Type', 'text/html');
-    await stream.pipe(
-      createReadableStreamFromAsyncGenerator(render(listTemplate()))
-    );
+    ctx.res.headers.set("Content-Type", "text/html");
+    await stream.pipe(createReadableStreamFromAsyncGenerator(render(listTemplate())));
   });
 });
+
+serve(app);
 
 export default app;

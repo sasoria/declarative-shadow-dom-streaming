@@ -1,10 +1,5 @@
-import { html } from 'swtl';
-import {
-  renderInResolvedOrder,
-  delayed,
-  globalStyles,
-  appStyles,
-} from '../utils.js';
+import { html } from "swtl";
+import { renderInResolvedOrder, delayed, globalStyles, appStyles } from "../utils.js";
 
 export const template = () => html` <!DOCTYPE html>
   <html>
@@ -30,8 +25,7 @@ export const template = () => html` <!DOCTYPE html>
             </div>
             <div>
               Read the
-              <a
-                href="https://lamplightdev.com/blog/2024/01/10/streaming-html-out-of-order-without-javascript/"
+              <a href="https://lamplightdev.com/blog/2024/01/10/streaming-html-out-of-order-without-javascript/"
                 >blog post</a
               >
             </div>
@@ -52,10 +46,7 @@ export const template = () => html` <!DOCTYPE html>
             </template>
             ${renderInResolvedOrder(
               [5, 9, 2, 1, 4, 3, 8, 6, 7, 0].map((num, index) => {
-                return delayed(
-                  1000 * (index + 2),
-                  html` <span slot="item-${num}">Item number ${num}</span> `
-                );
+                return delayed(1000 * (index + 2), html` <span slot="item-${num}">Item number ${num}</span> `);
               })
             )}
           </div>`
