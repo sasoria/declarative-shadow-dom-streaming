@@ -1,5 +1,5 @@
 import { html } from "swtl";
-import { globalStyles, appStyles } from "../utils.js";
+import { globalStyles, appStyles } from "../styles/styles.js";
 
 export const template = () => html` <!DOCTYPE html>
   <html>
