@@ -16,14 +16,14 @@ export const template = () => html` <!DOCTYPE html>
             <h1>Out of order streaming without JavaScript</h1>
           </header>
           <main>
-            <slot name="list">Loading content...</slot>
+            <slot name="content">Loading content...</slot>
           </main>
           <footer>Footer</footer>
         </template>
 
         ${fetch("https://swapi.dev/api/people/1")
           .then((res) => res.json())
-          .then((data) => html`<div slot="list">Content: ${data.name}</div>`)}
+          .then((data) => html`<div slot="content">Content: ${data.name}</div>`)}
       </div>
     </body>
   </html>`;
