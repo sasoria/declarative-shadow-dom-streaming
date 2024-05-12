@@ -4,17 +4,15 @@ import { serve } from "@hono/node-server";
 import { render } from "swtl";
 
 import { createReadableStreamFromAsyncGenerator } from "./utils.js";
-import { template as listTemplate } from "./templates/list.js";
+import { template } from "./templates/template.js";
 
 const app = new Hono();
 
 app.get("/", (ctx) => {
   return stream(ctx, async (stream) => {
     ctx.res.headers.set("Content-Type", "text/html");
-    await stream.pipe(createReadableStreamFromAsyncGenerator(render(listTemplate())));
+    await stream.pipe(createReadableStreamFromAsyncGenerator(render(template())));
   });
 });
 
 serve(app);
-
-export default app;
