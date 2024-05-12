@@ -22,4 +22,4 @@ ${fetch("https://swapi.dev/api/people/1")
 
 ## Resources
 
-[See the original blog post](https://lamplightdev.com/blog/2024/01/10/streaming-html-out-of-order-without-javascript/) for more information.
+See the original [blog post](https://lamplightdev.com/blog/2024/01/10/streaming-html-out-of-order-without-javascript/) written by Chris Haynes for more information .
