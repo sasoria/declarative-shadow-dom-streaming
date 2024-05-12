@@ -1,5 +1,3 @@
-import { render, html } from "swtl";
-
 const encoder = new TextEncoder();
 
 export function createReadableStreamFromAsyncGenerator(output) {
